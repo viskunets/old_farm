@@ -1,0 +1,794 @@
+/* 1. Запобігаємо виходу контенту за межі body */
+html {
+    /* Дозволяємо вертикальний скрол, але ховаємо горизонтальний */
+    overflow-x: hidden;
+    /* Видаляємо фіксовану висоту, якщо вона була */
+    height: auto;
+}
+
+body {
+    /* Не обмежуємо висоту body, щоб контент міг тягнутися вниз */
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    /* Це допоможе уникнути "стрибків" на iOS */
+    -webkit-overflow-scrolling: touch; 
+    /* 4. Встановлюємо фон на всю сторінку */
+    /* Встановлюємо фон на всю сторінку */
+    background-image: url('/assets/images/2bg.png');
+    background-position: center;
+    background-size: cover; /* Фон розтягується */
+    background-attachment: fixed; /* Фон залишається на місці при скролі (паралакс-ефект) */
+    background-repeat: no-repeat;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 2. Важливо: box-sizing змушує padding і border входити в ширину 100% */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* 3. Всі зображення мають бути гумовими за замовчуванням */
+img {
+    height: auto;
+    display: block;
+}
+
+/* Reserve Page Styles */
+/* --- Hero Section (Твій оригінал, без змін) --- */
+.reserve-hero {
+  position: relative;
+  padding-top: 96px; 
+  min-height: 720px;
+  overflow: visible;
+}
+
+.reserve-hero__image-wrapper {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/ozero_nesamovyte.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.reserve-hero__caption1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: max-content;
+  max-width: 90%;
+  padding: 8px 50px 8px 16px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+}
+.reserve-hero__caption2 {
+  position: relative;
+  top: 104px;
+  bottom: 0;
+  left: 0;
+  width: max-content;
+  max-width: 90%;
+  padding: 8px 50px 8px 16px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  z-index: 100;
+}
+
+.reserve-section3__caption, .reserve-section5__caption, .reserve-section__caption {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  top: -35px;
+  width: max-content;
+  max-width: 90%;
+  padding: 8px 50px 8px 16px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.reserve-hero__content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 400px;
+}
+
+.reserve-hero__side-image {
+  position: absolute;
+  top: 150px;
+}
+
+.reserve-hero__side-image img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  top: 140px;
+  z-index: 100;
+}
+
+.reserve-hero__content-box {
+  position: absolute;
+  z-index: 2;
+  background: #cad6ce;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 45px;
+  left: 533px;
+  top: 150px;
+  box-sizing: border-box;
+}
+
+.reserve-hero__title {
+  margin: 0 0 20px 0;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.reserve-hero__title2 {
+  margin: 0 0 20px 0;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.reserve-hero__title4 {
+  margin: 0 0 30px 0;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.reserve-hero__text {
+  margin-top: auto;
+  padding: 0;
+  text-align: left;
+  margin-bottom: 200px;
+  margin-left: 125px;
+  font-size: 16px;
+  text-align: justify;
+}
+
+.reserve-hero__text2 {
+  margin-top: auto;
+  top: 12px;
+  position: relative;
+  padding: 0;
+  text-align: left;
+  margin-bottom: 200px;
+  margin-left: 195px;
+  font-size: 16px;
+  text-align: justify;
+}
+
+.reserve-hero__text4 {
+  margin-top: auto;
+  top: 12px;
+  position: relative;
+  padding: 0;
+  text-align: left;
+  margin-bottom: 200px;
+  margin-left: 195px;
+  font-size: 16px;
+  text-align: justify;
+}
+
+/* --- Спільні стилі для секцій із фоном --- */
+.reserve-section {
+  position: relative;
+  background: transparent;
+  padding: 50px 0;
+}
+
+.reserve-section3 {
+  position: relative;
+  background: transparent;
+  padding-top: 130px;
+}
+
+.reserve-section4 {
+  position: relative;
+  background: transparent;
+  height: 850px;
+}
+/* --- СЕКЦІЇ ТИПУ "HERO" (Печера, Озеро) --- */
+
+.reserve-section--split .reserve-section__wrapper {
+  position: relative;
+  display: flex; /* Використовуємо Flex для кращого контролю наїзду */
+  align-items: flex-start;
+  min-height: 50px;
+  margin-top: 50px; /* Помірний відступ зверху для звичайних секцій */
+}
+
+/* Контейнер для фото зліва */
+.reserve-section--split .reserve-section__side-image {
+  position: relative;
+  flex: 0 0 750px; /* Ширина фото */
+  z-index: 1;
+  top: 0; /* Прибираємо величезні відступи Hero */
+}
+
+.reserve-section--split .reserve-section__side-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.reserve-section--split .reserve-section__side-image2 {
+  position: relative;
+  /* Робимо картинку менш широкою (наприклад, 600px замість 750px) */
+  flex: 0 0 680px; 
+  
+  /* Зменшуємо z-index, щоб хедер (у якого зазвичай 1000+) був зверху */
+  z-index: 10; 
+  
+  /* Замість top: 180px краще використати margin, щоб не ламати потік блоків */
+  margin-top: 182px; 
+  
+  /* Зміщуємо вправо */
+  margin-left: 0;
+
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.reserve-section--split .reserve-section__side-image2 img {
+  width: 650px;
+  height: auto;
+  display: block;
+  /* Якщо треба обмежити висоту, щоб контент вліз */
+  max-height: 700px; 
+  object-fit: cover;
+}
+
+.reserve-section--split .reserve-section__side-image3 {
+  position: relative;
+  /* Робимо картинку менш широкою (наприклад, 600px замість 750px) */
+  flex: 0 0 680px; 
+  
+  /* Зменшуємо z-index, щоб хедер (у якого зазвичай 1000+) був зверху */
+  z-index: 10; 
+  
+  /* Замість top: 180px краще використати margin, щоб не ламати потік блоків */
+  margin-top: 182px; 
+  
+  /* Зміщуємо вправо */
+  margin-left: 0;
+}
+
+.reserve-section--split .reserve-section__side-image3 img {
+  width: 650px;
+  height: auto;
+  display: block;
+  /* Якщо треба обмежити висоту, щоб контент вліз */
+  max-height: 700px; 
+  object-fit: cover;
+}
+
+.reserve-section--split .reserve-section__side-image4 {
+  position: relative;
+  /* Робимо картинку менш широкою (наприклад, 600px замість 750px) */
+  flex: 0 0 680px; 
+  
+  /* Зменшуємо z-index, щоб хедер (у якого зазвичай 1000+) був зверху */
+  z-index: 10; 
+  
+  /* Замість top: 180px краще використати margin, щоб не ламати потік блоків */
+  margin-top: 182px; 
+  
+  /* Зміщуємо вправо */
+  margin-left: 0;
+}
+
+.reserve-section--split .reserve-section__side-image4 img {
+  width: 650px;
+  height: auto;
+  display: block;
+  /* Якщо треба обмежити висоту, щоб контент вліз */
+  max-height: 700px; 
+  object-fit: cover;
+  position: relative;
+  top: 55px;
+}
+
+/* Робимо так, щоб контейнери картинок були точкою відліку для підписів */
+.reserve-section__side-image2, 
+.reserve-section__side-image4 {
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Налаштування самого підпису, щоб він не тікав */
+.reserve-section__side-image2 .reserve-hero__caption,
+.reserve-section__side-image4 .reserve-hero__caption {
+  position: absolute;
+  bottom: 0; /* Приклеїти до низу */
+  left: 0;   /* Приклеїти до лівого краю */
+  z-index: 101; /* Щоб був над картинкою */
+  width: auto; /* Щоб плашка підлаштовувалася під текст */
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+}
+
+/* Для Синевиру (Section 4) у тебе картинка має top: 55px, тому підпис теж треба посунути */
+.reserve-section__side-image4 .reserve-hero__caption {
+  bottom: -55px; /* компенсуємо зміщення картинки, якщо воно є */
+  color: white;
+}
+
+/* Зелений бокс із наїздом для нових секцій */
+.reserve-section--split .reserve-section__content-box {
+  position: absolute;
+  left: 533px; /* Тримаємо лінію як у Hero */
+  top: 80px;   /* Бокс наїжджає на фото зверху, але не так низько як в Hero */
+  z-index: 2;
+  background: #cad6ce;
+  width: 580px;
+  min-height: 480px;
+  padding: 50px 45px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.reserve-section__content-box2 {
+  position: absolute;
+    left: 440px;
+    top: 0;
+    z-index: 2;
+    background: #cad6ce;
+    width: 660px;
+    padding: 50px 45px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 752px;
+}
+.reserve-section__content-box4 {
+  position: relative;
+    left: 440px;
+    top: -550px;
+    z-index: 2;
+    background: #cad6ce;
+    width: 660px;
+    padding: 50px 45px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 850px;
+}
+
+/* Текст всередині боксів Печери/Озера */
+.reserve-section--split .reserve-hero__text {
+  margin-left: 0;      /* Прибираємо зміщення як у Hero для кращого читання */
+  margin-bottom: 40px; /* Відступ до орнаменту */
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* --- Ornament --- */
+.ornament {
+  width: 100%;
+  max-width: 510px;
+  height: 105px;
+  background-size: contain;
+  background-repeat: repeat-x;
+}
+
+.ornament--centered {
+  position: absolute;
+  bottom: -115px; /* Виступає трохи менше, щоб не перекривати наступний текст */
+  right: 0;
+  width: 100%;
+  max-width: 440px;
+  z-index: 4;
+}
+
+/* --- Заголовки для звичайних текстових блоків --- */
+.reserve-section__title {
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  margin-top: 500px;
+} 
+.reserve-section3__title_bridge, 
+.reserve-section5__title_tereble {
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+.reserve-section__text-content {
+  margin-top: 20px;
+  text-align: justify;
+  line-height: 1.6;
+}
+.reserve-section3__text-content {
+  margin-top: 20px;
+  text-align: justify;
+  line-height: 1.6;
+}
+.reserve-section5__text-content {
+  margin-top: 20px;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.reserve-section__image-wrapper {
+  margin-top: 40px;
+}
+.reserve-section__image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.reserve-section3__image-wrapper, img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.reserve-section5__image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+
+@media (max-width: 1200px) {
+  /* 1. БАЗОВІ НАЛАШТУВАННЯ */
+  .container {
+      padding: 0 20px !important;
+      width: 100% !important;
+  }
+
+  /* 2. HERO — СВЯТИЙ 100VH */
+  .reserve-hero {
+      padding: 0 !important;
+      height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-end !important; /* Текст буде внизу екрана */
+  }
+
+  .reserve-hero__image-wrapper {
+      position: absolute !important;
+      inset: 0 !important;
+      height: 100% !important;
+      z-index: 1 !important;
+  }
+
+  .reserve-hero__content {
+      position: relative !important;
+      z-index: 5 !important;
+      margin-top: 0 !important;
+      padding-bottom: 60px !important; /* Відступ від низу екрана */
+  }
+
+  /* 3. НОВІ КАПШОНИ (Елегантно поверх фото) */
+  .reserve-hero__caption1, 
+  .reserve-hero__caption2, 
+  .reserve-section__caption, 
+  .reserve-section3__caption, 
+  .reserve-section5__caption,
+  .reserve-section__side-image2 .reserve-hero__caption,
+  .reserve-section__side-image4 .reserve-hero__caption {
+      position: absolute !important;
+      bottom: 15px !important;
+      left: 15px !important;
+      right: 15px !important;
+      background: none !important; /* Жодних плашок */
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      letter-spacing: 1px !important;
+      padding: 0 !important;
+      border-left: 2px solid #cad6ce !important;
+      padding-left: 10px !important;
+      width: auto !important;
+      z-index: 10 !important;
+      top: auto !important;
+  }
+
+  .reserve-section--split .reserve-section__side-image2  {
+    flex: 0;
+  }
+
+  .reserve-section--split .reserve-section__side-image4 img {
+    position: static;
+  }
+
+  /* .reserve-hero__caption {
+    bottom: 200px;
+  } */
+
+  /* 4. СТРУКТУРА СЕКЦІЙ (Картинка -> Текст) */
+  .reserve-section, .reserve-section3, .reserve-section5 {
+      padding: 40px 0 !important;
+  }
+
+  .reserve-section4 {
+    height: auto !important;
+    display: block !important;
+    position: relative !important;
+}
+
+/* 2. Виправляємо зелений бокс Синевиру, щоб він не наповзав на наступну секцію */
+.reserve-section__content-box4 {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important; /* Прибираємо -550px, через які все злиплося */
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 40px !important;
+}
+
+/* 3. Опускаємо заголовок ГЕС (Section 5) на його законне місце */
+.reserve-section5 {
+    position: relative !important;
+    clear: both !important; /* Гарантуємо, що він іде після попередніх блоків */
+    padding-top: 20px !important;
+    display: block !important;
+}
+
+.reserve-section5__title_tereble {
+    margin-top: 20px !important; /* Прибираємо ті 400px, які ми пробували раніше */
+    position: relative !important;
+    z-index: 10 !important;
+    display: block !important;
+    clear: both !important;
+}
+
+  .reserve-section--split .reserve-section__wrapper {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0 !important;
+  }
+
+  /* Контейнери картинок */
+  .reserve-section__side-image, 
+  .reserve-section__side-image2, 
+  .reserve-section__side-image3, 
+  .reserve-section__side-image4,
+  .reserve-section__image-wrapper,
+  .reserve-section3__image-wrapper,
+  .reserve-section5__image-wrapper {
+      position: relative !important;
+      width: 100% !important;
+      margin: 0 0 20px 0 !important;
+      left: 0 !important;
+      top: 0 !important;
+  }
+
+  img {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      border-radius: 4px !important;
+  }
+
+  /* 5. ЗЕЛЕНІ ТЕКСТОВІ БОКСИ (Без наїздів) */
+  .reserve-hero__content-box,
+  .reserve-section__content-box2,
+  .reserve-section__content-box4 {
+      position: relative !important;
+      background: #cad6ce !important;
+      width: 100% !important;
+      left: 0 !important;
+      top: 0 !important;
+      padding: 30px 25px !important;
+      height: auto !important;
+      min-height: auto !important;
+      margin-top: 10px !important;
+  }
+
+  /* 6. ТЕКСТ ТА ЗАГОЛОВКИ */
+  .reserve-hero__title, .reserve-section__title, 
+  .reserve-section3__title_bridge, .reserve-section5__title_tereble,
+  .reserve-hero__title2, .reserve-hero__title4 {
+      font-size: 28px !important;
+      line-height: 1.1 !important;
+      margin: 0 0 20px 0 !important;
+      color: #1a2428 !important;
+  }
+
+  .reserve-hero__text, .reserve-section__text-content, 
+  .reserve-hero__text2, .reserve-hero__text4,
+  [class*="text-content"] {
+      font-size: 16px !important;
+      line-height: 1.6 !important;
+      margin: 0 0 20px 0 !important;
+      text-align: left !important;
+  }
+
+  /* 7. ОРНАМЕНТ (Акуратний розділювач) */
+  .ornament--centered {
+      position: relative !important;
+      width: 180px !important;
+      margin: 30px auto 0 auto !important;
+      bottom: 0 !important;
+      right: 0 !important;
+      opacity: 0.6;
+  }
+
+  /* Специфічний фікс для Hero side image (якщо вона є) */
+  .reserve-hero__side-image {
+      display: none !important; /* На мобілці другу картинку в Hero краще сховати для чистоти */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .container {
+      max-width: 720px !important;
+      margin: 0 auto !important;
+  }
+  
+  .reserve-hero__title, [class*="title"] {
+      font-size: 32px !important;
+  }
+
+  /* Робимо так, щоб бокси з текстом не були занадто високими */
+  [class*="content-box"] {
+      padding: 40px 50px !important;
+  }
+}
+
+@media (max-width: 767px) {
+    /* 1. HERO 100vh — стабілізація */
+    .reserve-hero {
+        height: 100vh !important;
+        min-height: 568px !important; /* Фікс для дуже дрібних екранів */
+    }
+
+    /* 2. ШРИФТИ — зменшуємо для 375px, щоб не було переносів по одній букві */
+    .reserve-hero__title, 
+    .reserve-section__title, 
+    [class*="title"] {
+        font-size: 22px !important; /* Оптимально для iPhone */
+        letter-spacing: 0.5px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .reserve-hero__text, 
+    [class*="text-content"], 
+    [class*="text"] {
+        font-size: 14px !important; /* Трохи менший шрифт для мобілок */
+        line-height: 1.5 !important;
+    }
+
+    /* 3. КАПШОНИ (Підписи на фото) */
+    [class*="caption"] {
+        font-size: 10px !important; /* Дуже делікатний підпис */
+        bottom: 10px !important;
+        left: 10px !important;
+        padding-left: 8px !important;
+        max-width: 85% !important;
+    }
+
+    /* 4. ВІДСТУПИ МІЖ СЕКЦІЯМИ */
+    .reserve-section, .reserve-section3, .reserve-section5 {
+        padding: 30px 0 !important;
+    }
+
+    /* Зелені бокси */
+    [class*="content-box"] {
+        padding: 25px 20px !important;
+        margin-top: 0 !important; /* Щільніше до фото */
+    }
+
+    /* 5. ОРНАМЕНТ */
+    .ornament--centered {
+        width: 140px !important;
+        margin: 20px auto !important;
+    }
+
+    /* 6. ЛОГОТИП — ще трохи менший для 375px */
+    .header__logo img {
+        max-width: 130px !important;
+    }
+}
+
+@media (max-width: 767px) {
+  /* Зменшуємо контейнер логотипу */
+  .header__logo, [class*="logo"] {
+      max-width: 120px !important; /* Чіткий розмір для 375px */
+      height: auto !important;
+      margin-left: 10px !important;
+  }
+
+  /* Зменшуємо саму картинку всередині */
+  .header__logo img, .logo img, header img {
+      width: 100% !important;
+      max-width: 120px !important;
+      height: auto !important;
+      object-fit: contain !important;
+  }
+
+  /* Робимо шапку вужчою, щоб вона не займала пів екрана */
+  header, .header {
+      padding: 10px 0 !important;
+      min-height: 60px !important;
+  }
+}
+
+@media (min-width: 1026px) and (max-width: 1200px) {
+  /* Зменшуємо загальні відступи */
+  .site-header {
+      padding: 10px 0 !important;
+  }
+
+  /* Стискаємо навігацію */
+  .site-header__nav {
+      gap: 2px !important; /* Менша відстань між посиланнями */
+  }
+
+  .site-header__nav-link {
+      margin-right: 20px !important; /* Замість 50px */
+      font-size: 12px !important;    /* Трохи менший шрифт */
+  }
+
+  /* Зменшуємо логотип, щоб звільнити місце */
+  .brand__logo {
+      width: 120px !important;
+  }
+
+  /* Якщо є текст біля лого, зменшуємо і його */
+  .brand__text {
+      font-size: 11px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 980px) {
+  /* Цільовий селектор з твого скріншоту інспектора */
+  .site-footer img.footer-brand__logo, 
+  .footer-brand__logo {
+      width: 120px !important; /* Твій бажаний розмір */
+      max-width: 120px !important;
+      height: auto !important;
+      margin-left: 10px !important;
+      display: block !important;
+  }
+
+  /* Додатково: якщо логотип загорнутий у посилання, скидаємо ширину посилання */
+  .footer-brand {
+      display: inline-block !important;
+      width: auto !important;
+      margin-left: 275px;
+  }
+}

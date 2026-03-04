@@ -1,0 +1,550 @@
+/* 1. Запобігаємо виходу контенту за межі body */
+html {
+    /* Дозволяємо вертикальний скрол, але ховаємо горизонтальний */
+    overflow-x: hidden;
+    /* Видаляємо фіксовану висоту, якщо вона була */
+    height: auto;
+}
+
+body {
+    /* Не обмежуємо висоту body, щоб контент міг тягнутися вниз */
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    /* Це допоможе уникнути "стрибків" на iOS */
+    -webkit-overflow-scrolling: touch; 
+}
+
+/* 2. Важливо: box-sizing змушує padding і border входити в ширину 100% */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* 3. Всі зображення мають бути гумовими за замовчуванням */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Animals Page Styles */
+
+.animal-hero {
+  padding: 120px 0 20px;
+  position: relative;
+  background-image: url('/assets/images/2bg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #1f2a2e;
+  background-attachment: fixed;
+  
+  /* Спочатку префікс для Chrome/Safari/Edge */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 0%, black 90%, transparent 160%);
+  
+  /* Потім стандартна властивість */
+  mask-image: linear-gradient(to bottom, transparent 0%, black 0%, black 95%, transparent 160%);
+}
+
+
+.animal-hero--horse {
+  padding-top: 80px;
+}
+
+.animal-hero__wrapper {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 40px;
+}
+
+.animal-hero__wrapper--reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.animal-hero__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.animal-hero__title {
+  margin: 0 0 16px;
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  line-height: 1.2;
+  color: rgba(31, 42, 46, 0.85);
+  text-transform: uppercase;
+}
+
+.animal-hero__title2 {  /* New class for the second title (horse "Гуцульський Кінь")*/
+  margin: 0 0 0px;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+}
+
+/* Ornamental Patterns */
+.ornament {
+  width: 100%;
+  max-width: 434px;
+  height: 28px;
+  margin: 0 0 40px;
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-position: left center;
+  background-image: url("/assets/images/ornament_animals 1.png");
+}
+
+/* .ornament--red {
+  background-image: url("data:image/svg+xml,%3Csvg width='280' height='28' viewBox='0 0 280 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 14L8 10L12 14L8 18L4 14Z' fill='%23C44536'/%3E%3Cpath d='M12 14L16 10L20 14L16 18L12 14Z' fill='%23C44536'/%3E%3Cpath d='M20 14L24 10L28 14L24 18L20 14Z' fill='%23C44536'/%3E%3Cpath d='M28 14L32 10L36 14L32 18L28 14Z' fill='%23C44536'/%3E%3Cpath d='M36 14L40 10L44 14L40 18L36 14Z' fill='%23C44536'/%3E%3Cpath d='M8 6L12 2L16 6L12 10L8 6Z' fill='%23A43B2C'/%3E%3Cpath d='M16 6L20 2L24 6L20 10L16 6Z' fill='%23A43B2C'/%3E%3Cpath d='M24 6L28 2L32 6L28 10L24 6Z' fill='%23A43B2C'/%3E%3Cpath d='M8 22L12 18L16 22L12 26L8 22Z' fill='%23A43B2C'/%3E%3Cpath d='M16 22L20 18L24 22L20 26L16 22Z' fill='%23A43B2C'/%3E%3Cpath d='M24 22L28 18L32 22L28 26L24 22Z' fill='%23A43B2C'/%3E%3C/svg%3E");
+/*/
+
+.ornament--green {
+  background-repeat: no-repeat;    /* Не повторювати, якщо це один цілісний малюнок */
+  background-position: center;      /* Ставимо по центру */
+  background-size: contain;         /* Вміщуємо картинку повністю */
+  background-image: url("/assets/images/ornament_green.png");
+  
+  width: 100%;                      /* Контейнер на всю ширину */
+  max-width: 879px;                 /* Але сам малюнок не ширше текстового блоку */
+  height: 20px;                     /* Можна задати свою висоту, якщо зелений більший */
+  
+  margin: 32px auto;                /* Центруємо сам блок на сторінці */
+}
+
+.ornament--centered {
+  margin: 48px auto;
+}
+
+.animal-hero__text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.animal-hero__intro {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.3;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  text-align: justify;
+}
+
+.animal-hero__intro2 {
+  margin-top: 270px;
+  font-size: 16px;
+  line-height: 1.3;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  text-align: justify;
+}
+
+.animal-hero__intro2-2 {
+  margin-top: 0;
+  font-size: 16px;
+  line-height: 1.3;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  text-align: justify;
+}
+
+.animal-hero__intro3 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.3;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  text-align: justify;
+}
+
+.animal-hero__intro4 {
+  font-size: 16px;
+  line-height: 1.3;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  text-align: justify;
+}
+
+.animal-hero__description {
+  margin-top: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: justify;
+}
+
+.animal-hero__description2 {
+  margin-top: 64px;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+}
+
+.animal-hero__description3 {
+  margin-top: 64px;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: justify;
+}
+
+.animal-hero__description4 {
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: justify;
+  top: -23px;
+  position: relative;
+}
+
+.animal-hero__description, .img_ornament {
+  width: 585px;
+  height: auto;
+}
+.img_ornament {
+  margin-top: 65px;
+}
+
+/* Media Section */
+.animal-hero__media {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.animal-hero__image {
+  width: 585px;
+  height: 460px;
+  object-fit: cover;
+  /* aspect-ratio: 5 / 5; */
+}
+
+.animal-hero__nav {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.nav-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: rgba(31, 42, 46, 0.7);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.nav-arrow:hover {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+  transform: scale(1.05);
+}
+
+.nav-arrow:active {
+  transform: scale(0.95);
+}
+
+/* Right Content Section */
+.animal-hero__right-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Відступ між абзацами */
+}
+
+.animal-hero__text-block {
+  column-gap: 40px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(31, 42, 46, 0.68);
+  text-align: justify;
+}
+
+.animal-hero__text-block p {
+  width: 100%;
+  max-width: 585px; /* Щоб ширина тексту збігалася з шириною фото */
+  font-family: 'Montserrat', sans-serif; /* Твій підключений шрифт */
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  margin-bottom: 20px; /* Відступ між параграфами */
+  font-weight: 500;
+}
+
+.animal-hero__text-block p:last-child {
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.animal-hero__text-block, .btn--primary{
+  margin-top: 40px;
+}
+
+/* Video Section */
+.video-section {
+  padding: 20px 0;
+  background-image: url('/assets/images/2bg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  background-color: #757575;
+  background-attachment: fixed;
+
+  /* Цей рядок робить краї секції прозорими, що прибирає стик */
+  /* Спочатку префікс для Chrome/Safari/Edge */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 0%, black 90%, transparent 160%);
+  
+  /* Потім стандартна властивість */
+  mask-image: linear-gradient(to bottom, transparent 0%, black 0%, black 90%, transparent 160%);
+}
+
+.video-section__title {
+  margin: 30px 0 30px;
+  font-size: 32px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+.video-section__player {
+  position: relative;
+  max-width: 1000px;
+  margin: 40px auto 30px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.video-section__thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.video-section__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(31, 42, 46, 0.85);
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.25));
+}
+
+.video-section__play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-section__play-btn:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* Bottom Section for Horse */
+.animal-hero__bottom-section {
+  margin-top: 60px;
+  margin-bottom: 80px;
+  display: flex; /* Робимо флекс-контейнер */
+  flex-direction: row; /* Елементи стають в ряд */
+  gap: 16px; /* Відстань між фото і текстом */
+}
+
+.animal-hero__landscape {
+  /* flex: 0 0 585px; Фіксована ширина фото як на макеті */
+  border-radius: 0; /* Прибираємо закруглення, якщо треба як на фото */
+  overflow: hidden;
+}
+
+.animal-hero__landscape-image {
+  width: 100%;
+  height: 432px; /* Висота як на макеті */
+  display: block;
+  object-fit: cover;
+}
+
+.animal-hero__bottom-text {
+  flex: 1; /* Текст займає весь вільний простір справа */
+  columns: auto; /* Прибираємо газетні колонки */
+  font-size: 16px; /* Розмір як у основного тексту */
+  line-height: 1.6;
+  color: #000; /* Чорний колір для кращої читаємості */
+  margin: 0;
+}
+
+
+
+.btn--view {
+  align-self: center;
+  padding: 14px 48px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+
+/* --- АДАПТИВНІСТЬ --- */
+
+/* 1. Ноутбуки та маленькі екрани (до 1200px) */
+@media (max-width: 1200px) {
+  .animal-hero__wrapper, 
+  .animal-hero__bottom-section {
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  
+  .animal-hero__description,
+  .img_ornament,
+  .animal-hero__text-block p {
+    width: 100%; /* Фото та блоки підлаштовуються під ширину екрана */
+    max-width: 100%;
+  }
+
+  .animal-hero__landscape-image, .animal-hero__image{
+    width: 60% !important;   /* Зменшуємо фізичну ширину */
+    height: auto !important;
+    margin: 0 auto;          /* Центруємо картинку в її колонці */
+    object-fit: contain;     /* Гарантує, що весь вміст фото буде видно (без обрізки) */
+    transform: scale(0.8);   /* Додаткове візуальне зменшення */
+  }
+  
+  .animal-hero__nav{
+    margin-left: 430px !important;
+    margin-top: -40px !important;
+  }
+
+  .btn--primary1, .btn--view{
+    margin-left: 360px !important;
+   }
+
+}
+
+/* 2. Планшети (iPad та аналоги, до 1024px) */
+@media (max-width: 1024px) {
+  .animal-hero {
+    padding-top: 100px;
+  }
+
+  /* Перетворюємо дві колонки в одну */
+  .animal-hero__wrapper,
+  .animal-hero__wrapper--reverse,
+  .animal-hero__bottom-section {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .animal-hero__title, 
+  .animal-hero__title2 {
+    font-size: 32px;
+    letter-spacing: 0.15em;
+  }
+
+  .animal-hero__image,
+  .animal-hero__landscape-image {
+    height: auto; /* Дозволяємо фото змінювати висоту пропорційно */
+    width: 100% !important;
+  }
+
+  .animal-hero__intro2 {
+    margin-top: 20px; /* Прибираємо величезний відступ на мобілці */
+  }
+
+  .animal-hero__nav{
+    margin: 0 auto !important;
+  }
+}
+
+/* 3. Смартфони (iPhone, Android, до 768px) */
+@media (max-width: 768px) {
+  .animal-hero__title, 
+  .animal-hero__title2 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .ornament, 
+  .ornament--green {
+    margin: 20px auto;
+  }
+
+  .animal-hero__text-content, 
+  .animal-hero__right-content {
+    text-align: left;
+  }
+
+  .animal-hero__nav {
+    justify-content: center; /* Центруємо стрілки навігації */
+  }
+
+  .video-section__title {
+    font-size: 24px;
+    padding: 0 15px;
+  }
+
+  .animal-hero__bottom-text {
+    font-size: 15px; /* Трохи менший шрифт для читабельності */
+  }
+
+   .btn--primary1, .btn--view{
+    margin-left: 75px !important;
+   }
+}
+
+/* 4. Маленькі смартфони (до 480px) */
+@media (max-width: 480px) {
+  .animal-hero {
+    padding-top: 80px;
+  }
+
+  .animal-hero__wrapper {
+    margin-top: 30px;
+  }
+
+  .nav-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .btn--primary1, .btn--view{
+    margin-left: 75px !important;
+   }
+}
+
+/* 5. Смартфони (до 390px) */
+@media (max-width: 390px) {
+  .btn--primary1, .btn--view{
+    margin-left: 55px !important;
+   }
+}

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ферма Старого Світу — Головна</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/include.js"></script>
+  <script src="assets/js/mail-send.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Перейти до контенту</a>
+
+  <div data-include="partials/header.html"></div>
+
+  <main id="main">
+    <section class="hero" aria-label="Головний банер">
+      <div class="hero__bg" role="img" aria-label="Фото стада буйволів">
+        <img src="assets/images/main.png" alt="Фото стада буйволів" />
+      </div>
+    </section>
+
+    <section class="hero-title" aria-label="Заголовок">
+      <div class="container hero-title__content">
+        <h1 class="hero-title__text">МІШЕЛЬ ЯКОБІ ТА ЙОГО МРІЯ</h1>
+        <img class="hero-title__ornament" src="assets/images/Vector.png" alt="Орнамент" aria-hidden="true" />
+      </div>
+      <!-- / Кнопка для прокрутки вниз, яка веде до наступного розділу. */ -->
+      <div class="scroll-wrapper">
+        <a href="#next-block" class="scroll-btn">
+          <span class="scroll-label"></span>
+          <div class="mouse-icon">
+            <div class="wheel"></div>
+          </div>
+          <div class="arrow-wave">
+            <span></span>
+            <span></span>
+          </div>
+        </a>
+      </div>
+      <!-- / Кнопка для прокрутки вниз, яка веде до наступного розділу. */ -->
+      <div class="container hero-title__cards" id="next-block">
+        <div class="hero__cards">
+          <article class="card">
+            <div class="card__media" role="img" aria-label="Філософія та цілі">
+              <img src="assets/images/card-1.png" alt="Філософія та цілі" />
+            </div>
+            <div class="card__content">
+              <h2 class="card__title">ФІЛОСОФІЯ ТА ЦІЛІ</h2>
+              <p class="card__text">
+                Порятунок популяції карпатського буйвола від вимирання та людської байдужості став для німецького
+                еколога Мішеля Якобі ціллю, якій він присвятив більше 10 років свого життя.
+              </p>
+              <a class="card__link" href="/patronage.html">Детальніше</a>
+            </div>
+          </article>
+
+          <article class="card card--raised">
+            <div class="card__media" role="img" aria-label="Фото (заглушка)">
+              <img src="assets/images/2-1 1.png" alt="Філософія та цілі" />
+            </div>
+            <div class="card__content">
+              <h2 class="card__title_middle">ПОРЯТУНОК ПОПУЛЯЦІЇ КАРПАТСЬКОГО БУЙВОЛА</h2>
+              <p class="card__text_middle">
+                Карпатський буйвіл – це доброзичлива, розумна та сильна тварина, яка любить спілкування, природу та
+                відкриті простори. Велична та дуже спокійна тварина здавна була чи не в кожному місцевому обійсті.
+              </p>
+              <a class="card__link" href="/animals.html">Детальніше</a>
+            </div>
+            <div class="card__bottom-media" role="img" aria-label="Фото внизу (заглушка)"><img
+                src="assets/images/2-2 3.png" alt="Філософія та цілі" /></div>
+          </article>
+
+          <article class="card">
+            <div class="card__media" role="img" aria-label="Фото (заглушка)">
+              <img src="assets/images/3-1 1.png" alt="Філософія та цілі" />
+            </div>
+            <div class="card__content">
+              <h2 class="card__title">ЗАПОВІДНА ЗОНА</h2>
+              <p class="card__text">
+                Якщо ви вже налаштувались на неймовірну подорож і гадаєте, який маршрут обрати – тримайте одразу цілий
+                список крутих ідей!
+              </p>
+              <a class="card__link" href="/reserve.html">Детальніше</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="map" aria-label="Мапа локацій">
+      <div class="container map__container">
+        <div class="map__frame" role="img" aria-label="Мапа (заглушка)">
+          <img src="assets/images/map.png" alt="Мапа" />
+        </div>
+      </div>
+    </section>
+
+    <section class="media" aria-label="Відео та матеріали">
+      <div class="container media__container">
+        <h2 class="media__title">Шлях Мішеля. Від буйволів до спільноти · Ukraїner</h2>
+        <div class="media__ornament" aria-hidden="true">
+          <img src="/assets/images/Vector_green.png" alt="">
+        </div>
+
+        <a class="video" href="#" aria-label="Відкрити відео (поки заглушка)">
+          <div class="video__thumb" role="img" aria-label="Превʼю відео (заглушка)"></div>
+          <div class="video__play" aria-hidden="true"></div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+
+  <div data-include="partials/footer.html"></div>
+</body>
+
+</html>

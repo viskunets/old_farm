@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тварини — Ферма Старого Світу</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat::ital,wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+  <link rel="stylesheet" href="assets/css/animals.css" />
+
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/include.js"></script>
+  <script src="assets/js/mail-send.js"></script>
+  <script src="assets/js/slider.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Перейти до контенту</a>
+
+  <div data-include="partials/header.html"></div>
+
+  <main id="main">
+    <!-- Carpathian Buffalo Section -->
+    <section class="animal-hero animal-hero--buffalo" aria-label="Карпатський буйвіл">
+      <div class="container">
+        <div class="animal-hero__wrapper">
+          <div class="animal-hero__content">
+            <h1 class="animal-hero__title">
+              КАРПАТСЬКИЙ<br />БУЙВІЛ
+            </h1>
+            <div class="ornament ornament--red" aria-hidden="true"></div>
+
+            <div class="animal-hero__text-content">
+              <p class="animal-hero__intro">
+                Карпатський буйвіл – це доброзичлива, розумна та сильна тварина, яка любить спілкування, природу та
+                відкриті простори. Велична та дуже спокійна тварина здавна була чи не в кожному місцевому обійсті.
+              </p>
+
+              <p class="animal-hero__description">
+                «Є різні буйволи. Цей, карпатський, він дуже розумний. У нього зовсім інша свідомість, ніж у
+                болгарського, приміром. Карпатський буйвол – це друг. Його не можна бити. Карпатський буйвол – це
+                український слон. Він все пам’ятає, у нього свій характер. Буйволиця ніколи не дасть молока, якщо ви не
+                друзі. З нею треба спілкуватися, це не дурна корова чи коза, у неї свій характер».
+                — Матеріали зі сайту ukrainer.net
+              </p>
+              <div class="img_ornament"><!-- орнамент під текстом (справа буйвол) -->
+                <img src="/assets/images/ornament.png" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="animal-hero__media">
+            <img src="assets/images/4 1 (1).png" id="buffalo-image1" alt="Людина з карпатським буйволом" class="animal-hero__image" />
+            <div class="animal-hero__nav">
+              <button class="nav-arrow nav-arrow--left" id="prev-buffalo" aria-label="Попередня тварина">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="nav-arrow nav-arrow--right" id="next-buffalo" aria-label="Наступна тварина">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="animal-hero__right-content">
+              <div class="animal-hero__text-block">
+                <p>
+                  Родом буйволи з Індії, вони гарно адаптувалися до життя в Карпатах. Гарне хутро і неперебірливість у
+                  харчуванні робить карпатського буйвола неповторним у своєму роді. Буйволи відзначаються своєю
+                  винятковою силою і використовуються місцевим населенням як тягова сила для перевезення величезних
+                  вантажів і оранки.
+                </p>
+                <p>
+                  Особливим вважається і буйволяче молоко, його жирність складає близько 8-12%. Це молоко високо
+                  цінується у колі знавців і вважається цілющим завдяки високому вмісту вітамінів і легкозасвоюваних
+                  людським організмом жирів.
+                </p>
+                <p>
+                  Умови існування карпатських буйволів ніколи не були легкими, але вони завжди могли вижити в симбіозі з
+                  людиною. З часом люди і буйволи стали залежними один від одного.
+                </p>
+                <p>
+                  Сьогодні поголів’я карпатського буйвола скоротилося до небезпечного рівня, тому терміново необхідно
+                  вжити заходів, щоб їхня історія не скінчилася.
+                </p>
+                <p>
+                  Подбайте, щоб карпатських буйволів стало більше.
+                </p>
+                <button class="btn btn--primary btn--view js-open-modal" href="#modal-support">ПІДТРИМАТИ</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mischel Yakobi Video Section -->
+    <section class="video-section" aria-label="Відео про Мішеля Якобі">
+      <div class="container">
+        <h2 class="video-section__title">
+          Мішель Якобі і його Карпатські буйволи : Ukraїner
+        </h2>
+        <div class="ornament ornament--green" aria-hidden="true"></div>
+
+        <div class="video-section__player">
+          <img src="assets/images/image 2.jpeg" alt="Відео: Мішель Якобі з буйволом" class="video-section__thumbnail" />
+          <!-- <iframe 
+            src="https://www.youtube.com/embed/ТВІЙ_ID_ВІДЕО" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe> -->
+          <!-- <button class="video-section__play-btn" aria-label="Відтворити відео">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="30" fill="white" opacity="0.95" />
+              <path d="M24 20L40 30L24 40V20Z" fill="currentColor" />
+            </svg>
+          </button> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Hutsul Horse Section -->
+    <section class="animal-hero animal-hero--horse" aria-label="Гуцульський кінь">
+      <div class="container">
+        <div class="animal-hero__wrapper animal-hero__wrapper--reverse">
+          <div class="animal-hero__media">
+            <img src="assets/images/11 1.png" id="horse-image" alt="Людина на гуцульському коні" class="animal-hero__image" />
+            <div class="animal-hero__nav">
+              <button class="nav-arrow nav-arrow--left" id="prev-horse" aria-label="Попередня тварина">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="nav-arrow nav-arrow--right" id="next-horse" aria-label="Наступна тварина">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <p class="animal-hero__intro2">
+              Дослідники вважають карпатського гутана однією із найстаріших порід європейських коней і припускають, що
+              він є прямим нащадком тарпана, вимерлим європейським диким конем.
+            </p>
+            <p class="animal-hero__intro2-2">
+              Гутани вважаються невеликими кіньми гірського типу (висота у загривку 125 — 144 см). Тілобудова коня
+              масивна, форми тіла округлі, конституція міцна, тулуб широкий, глибокий, довгий. Голова середньої величини
+              з широким лобом, прямим або вигнутим профілем, шия товста коротка. Холка низька довга, лопатка крута,
+              кінцівки короткі, широко поставлені, передні – часто з коротким п’ястком і підставлені, задні майже завжди
+              іксоподібні.
+              Відмінні ознаки коней породи гутан - темна смуга по хребту і смужки на ногах. Грива і хвіст у них,
+              зазвичай, темні, а колір хутра знаходиться в діапазоні від кремового до коричневого, іноді сірого кольору.
+              Живіт, ноги і морда, як правило, світліші.
+              В умовах непрохідного бездоріжжя ці коні є універсальними як для верхової їзди, так і для упряжки.
+              Унікальність гутанів полягає в особливій плавній манері ходу – вони не скачуть, як інші коні, а ніби
+              плавно пливуть над землею.
+            </p>
+          </div>
+
+          <div class="animal-hero__content">
+            <h2 class="animal-hero__title2">
+              ГУЦУЛЬСЬКИЙ<br />КІНЬ
+            </h2>
+            <div class="ornament ornament--red" aria-hidden="true"></div>
+
+            <div class="animal-hero__text-content">
+              <p class="animal-hero__intro3">
+                Сильний, витривалий, розумний, надійний, - так це відданий товариш та партнер гуцула – Гутан. Це стара
+                порода гуцульських коней, що оспівана та звеличена в народній творчості.
+              </p>
+
+              <p class="animal-hero__description3">
+                «Кінь, лиш він один, здатний крутими вузенькими плаями знести з далеких полонин берівки бриндзи і масла,
+                просто іздця. На коні їздить у Гуцульщині кожний, бо дороги каменисті, гори стрімкі, просторони далекі.
+                Сидячи на коні, пряде гуцулка, мама плекає дитину. Як лиш дитина вродиться, кладуть її символічно на
+                коня, до слюбу конче їдуть на конях кнєзь і кнєгиня (молодий і молода)... Та хіба лише у цих випадках? У
+                великій пригоді стає гуцульський кінь маловидющому або сплячому чоловікові: такого він занесе певно та
+                безпечно додому. Пригадую, як тато садив мене на нашу могутню кобилу і вона заносила мене, маленьку, у
+                стайню, де я скочувалася у ясла на запашне сіно і чула материнське дихання над головою моєю вірної
+                гнідої опікунки... Не раз врятував гуцульський кінь їздця від звірака. Недарма казали у давнину: наколи
+                би не гуцульський кінь, то гори би стали пусткою».
+                — Влад Марія Миколаївна, «Стрітеннє: Книжка гуцульських звичаїв і вірувань»
+              </p>
+              <div class="img_ornament2"><!-- орнамент під текстом (зліва кінь) -->
+                <img src="/assets/images/ornament.png" alt="">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="animal-hero__bottom-section">
+          <div class="animal-hero__landscape">
+            <img src="assets/images/anim-2-2 1.png" alt="Гуцульські коні на пасовищі"
+              class="animal-hero__landscape-image" />
+          </div>
+
+          <div class="animal-hero__bottom-text">
+            <p class="animal-hero__description4">
+              «Гуцульські жінки могли спокійно верхи займатися рукоділлям чи ткати вовну в той час, коли їх кінь дбав
+              про дорогу. Хворих чи напідпитку коні завжди доносили додому цілими та неушкодженими. Вони самостійно, без
+              супроводу могли доправити бочки з сиром або маслом із пасовища до місця призначення. Навіть підвісні мости
+              над балками та долинами не були для них перепоною – кінь обережно міг перейти через них. Коли кінь
+              відчував поблизу присутність вовка чи ведмедя, то передусім попереджав хазяїна про небезпеку. До дітей
+              кінь ставився дружелюбно, був слухняним покірним, тому діти часто з ним гралися чи брали з собою, коли
+              їхали по воду».
+              – Сеньків, Іван «Скотарська культура гуцулів: народознавча студія».
+            </p>
+            <p class="animal-hero__intro4">
+              Сьогодні кінь гутан взятий під охорону і вважається вимираючим видом домашніх тварин. Тому надзвичайно
+              важливо, щоб в у Карпатських горах мали можливість жити і розвиватися ці чудові тварини.
+            </p>
+            <p class="animal-hero__intro4">
+              Подбайте, щоб гутанів стало більше.
+            </p>
+            <button class="btn btn--primary btn--view js-open-modal" href="#modal-support">ПІДТРИМАТИ</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="partials/footer.html"></div>
+</body>
+
+</html>

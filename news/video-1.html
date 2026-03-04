@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Відеоекскурсія фермою — Ферма</title>
+
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/header.css" />
+    <link rel="stylesheet" href="../assets/css/footer.css" />
+    <link rel="stylesheet" href="../assets/css/news.css" />
+    
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/include.js"></script>
+    <script src="../assets/js/news.js"></script>
+    <script src="../assets/js/mail-send.js"></script>
+  </head>
+  <body>
+    <div data-include="../partials/header.html"></div>
+
+    <main class="news-page">
+      <section class="news-hero">
+        <div class="container">
+          <div class="news-hero__inner">
+            <div class="news-hero__left">
+              <h1 class="news-page__title">НОВИНИ</h1>
+              <img class="news-ornament" src="../assets/images/ornament_animals 1.png" alt="" aria-hidden="true" />
+            </div>
+            <nav class="news-tabs" role="tablist" aria-label="Фільтр новин">
+              <a class="news-tab" data-filter="all" href="../news.html?filter=all">Усі новини</a>
+              <a class="news-tab" data-filter="media" href="../news.html?filter=media">ЗМІ про нас</a>
+              <a class="news-tab" data-filter="video" href="../news.html?filter=video">Відео</a>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <section class="news-article container">
+        <aside class="article-aside">
+          <img class="article-thumb" src="../assets/images/card-1.png" alt="">
+          <nav class="article-nav">
+            <a class="article-link article-link--all" href="../news.html">До усіх новин <span class="arrow">↩</span></a>
+            <a class="article-link article-link--prev" href="#"><span class="arrow">←</span> <span class="article-link__text">Попередня новина</span></a>
+            <a class="article-link article-link--next" href="#"><span class="article-link__text">Наступна новина</span> <span class="arrow">→</span></a>
+          </nav>
+        </aside>
+
+        <article class="article-content">
+          <time class="news-date">01 · 12 · 2022</time>
+          <h2 class="article-title">Відеоекскурсія фермою</h2>
+
+          <div class="article-body">
+            <p class="article-lead">Короткий огляд відео про життя на фермі і маршрути для відвідувачів.</p>
+
+            <p>Текст і опис відео. Це тестова сторінка для повноти навігації між статтями.</p>
+
+            <img class="article-hero-image" src="../assets/images/card-1.png" alt="Ферма" />
+
+            <p><a href="../news.html">← Повернутися до новин</a></p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <div data-include="../partials/footer.html"></div>
+  </body>
+</html>

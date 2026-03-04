@@ -1,0 +1,126 @@
+/* 1. Запобігаємо виходу контенту за межі body */
+html {
+    /* Дозволяємо вертикальний скрол, але ховаємо горизонтальний */
+    overflow-x: hidden;
+    /* Видаляємо фіксовану висоту, якщо вона була */
+    height: auto;
+}
+
+body {
+    /* Не обмежуємо висоту body, щоб контент міг тягнутися вниз */
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    /* Це допоможе уникнути "стрибків" на iOS */
+    -webkit-overflow-scrolling: touch; 
+}
+
+/* 2. Важливо: box-sizing змушує padding і border входити в ширину 100% */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* 3. Всі зображення мають бути гумовими за замовчуванням */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Patronage page styles */
+.patron-hero{ padding:0px 0 100px; position: relative; isolation: isolate;}
+/* Створюємо "зелене полотно" */
+.patron-hero::before {
+    content: "";
+    position: absolute;
+    top: 480px; /* Відступ зверху, де починається зелений фон на макеті */
+    bottom: 0;
+    right: 0;
+    width: 100%; /* Займає рівно половину екрана */
+    height: 670px;
+    background-color: #CAD6CE; /* Твій світло-зелений колір */
+    z-index: -1; /* Ховаємо під текст і картинку */
+}
+.patronage-page{ background-image: url('/assets/images/2bg.png'); background-size: cover; background-position: center top; background-attachment: fixed; }
+/* left image | content */
+.patron-grid{ display:grid; grid-template-columns: 585px 1fr; gap:15px; align-items:start; margin-bottom:50px; }
+.patron-image img{ width:100%; height:auto; max-width:100%; display:block; margin-top:250px; }
+
+/* top row inside right column: ornament + title */
+.patron-top{ margin-top:250px; display:flex; align-items:flex-start; gap:15px; }
+.patron-ornament{ width:210px; height:210px; flex:0 0 210px; }
+.patron-content{ max-width:840px; padding-top:0; }
+.patron-title{ font-family: 'Montserrat', sans-serif; font-size:42px; font-weight:400; margin: 65px 0 12px; letter-spacing: 6px; }
+
+/* Copy band under ornament and title (in right column only) */
+.patron-copy{  margin-top:55px; font-size: 14px; font-weight: 600; }
+.patron-copy .patron-lead{ margin:0 0 12px; }
+.patron-copy p{ margin:0 0 12px; color:#222; line-height:1.6; }
+.patron-copy .patron-cta{ margin-top:18px; text-align:center; }
+.patron-cta .btn{ min-width:220px; }
+
+
+/* SECTION 2 */
+.patron-title2{ font-family: 'Montserrat', sans-serif; font-size:42px; font-weight:400; margin: 40px 0 12px; letter-spacing: 6px; }
+.patron-ornament2{ width:210px; height:210px; flex:0 0 210px; }
+.patron-copy2{  margin-top:20px; font-size: 14px; font-weight: 600; }
+.patron-copy2 p{ color:#222; line-height:2.0; }
+.patron-lead2{ margin:40px 0 12px;}
+
+.patron-image2 img{ width:100%; height:auto; max-width:100%; display:block; margin-top:50px; }
+
+/* SECTION 3 */
+.patron-title3{ font-family: 'Montserrat', sans-serif; font-size:42px; font-weight:400; margin: 40px 0 12px; }
+.patron-ornament3{ width:210px; height:210px; flex:0 0 210px; }
+.patron-copy3{  margin-top:20px; font-size: 14px; font-weight: 600; }
+.patron-copy3 p{ color:#222; line-height:2.0; display: flex; align-items:flex-start; }
+.patron-lead3{ margin:40px 0 12px;}
+
+.patron-title33{ font-family: 'Montserrat', sans-serif; font-size:42px; font-weight:400; margin: 40px 0 12px; }
+.patron-copy33{  margin-top:45px; font-size: 14px; font-weight: 600; background-color: #CAD6CE; height: 350px; }
+.patron-copy33 p{ color:#222; line-height:2.8; display: flex; align-items: flex-start; gap: 20px; margin-bottom: 15px; }
+
+
+
+.patron-copy33 .orange-vector {
+    flex-shrink: 0;
+    width: 20px;
+    height: auto;
+    
+    /* Замість margin-top використовуємо це: */
+    transform: translateY(10px); /* Підбери значення в px, щоб іконка стала рівно по центру першого рядка */
+    
+    /* Прибираємо margin-right, бо gap у батька вже робить відступ */
+    margin-right: 0;
+    margin-left: 20px; 
+}
+.patron-copy3 .orange-vector {
+    flex-shrink: 0;
+    width: 20px;
+    height: auto;
+    
+    /* Замість margin-top використовуємо це: */
+    transform: translateY(5px); /* Підбери значення в px, щоб іконка стала рівно по центру першого рядка */
+    
+    /* Прибираємо margin-right, бо gap у батька вже робить відступ */
+    margin-right: 20px; 
+}
+
+/* START: Розпочни свою пригоду секція */
+.patron-start{ margin:40px auto 0; text-align:center; max-width:840px; }
+.patron-start-title{ font-family: 'Montserrat', sans-serif; font-size:42px; font-weight:400; margin: 40px 0 12px; }
+.patron-start .btn { width:285px; height:60px; background-color:#A42C1E; color:#fff; display:inline-block; text-align:center; line-height:40px; margin-top:40px; border-radius:10px; border:none; font-weight:600; text-decoration:none; }
+
+/* End START section */
+
+@media (max-width:980px){
+  .patron-grid{ grid-template-columns: 1fr; }
+  .patron-image{ order:1; }
+  .patron-top{ order:2; gap:12px; align-items:flex-start; }
+  .patron-ornament{ width:92px; height:auto; margin:12px 0 18px; }
+  .patron-content{ order:3; padding:0 20px; }
+  .patron-image img{ margin-top:72px; }
+  .patron-copy{ margin-top:12px; padding:18px; }
+}

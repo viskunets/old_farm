@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Новини — Ферма Старого Світу</title>
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/news.css" />
+
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/news.js"></script>
+    <script src="assets/js/mail-send.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти до контенту</a>
+    <div data-include="partials/header.html"></div>
+
+    <main id="main" class="news-page">
+      <section class="news-hero">
+        <div class="container">
+          <div class="news-hero__inner">
+            <div class="news-hero__left">
+              <h1 class="news-page__title">НОВИНИ</h1>
+              <img class="news-ornament" src="assets/images/ornament_animals 1.png" alt="" aria-hidden="true" />
+            </div>
+            <nav class="news-tabs" role="tablist" aria-label="Фільтр новин">
+              <button type="button" class="news-tab active" data-filter="all">Усі новини</button>
+              <button type="button" class="news-tab" data-filter="media">ЗМІ про нас</button>
+              <button type="button" class="news-tab" data-filter="video">Відео</button>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <section class="news-list-wrap">
+        <div class="container">
+          <div class="news-list">
+
+            <article class="news-item" data-category="news">
+              <a class="news-card" href="news/animals.html">
+                <img class="news-thumb" src="assets/images/card-1.png" alt="">
+                <div class="news-body">
+                  <time class="news-date">02 · 05 · 2022</time>
+                  <h2 class="news-heading">Шлях Мішеля. Від буйволів до спільноти</h2>
+                  <p class="news-excerpt">Короткий опис новини, який показує сутність матеріалу і заохочує перейти на сторінку.</p>
+                </div>
+                <span class="news-arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+
+            <article class="news-item" data-category="media">
+              <a class="news-card" href="news/animals.html">
+                <img class="news-thumb" src="assets/images/card-1.png" alt="">
+                <div class="news-body">
+                  <time class="news-date">10 · 08 · 2022</time>
+                  <h2 class="news-heading">Ukraїner: Шлях Мішеля</h2>
+                  <p class="news-excerpt">Матеріал у ЗМІ про наш проєкт та його вплив на регіон.</p>
+                </div>
+                <span class="news-arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+
+            <article class="news-item" data-category="video">
+              <a class="news-card" href="news/animals.html">
+                <div class="news-thumb news-thumb--video" role="img" aria-label="Превʼю відео"></div>
+                <div class="news-body">
+                  <time class="news-date">15 · 09 · 2022</time>
+                  <h2 class="news-heading">Відео: День на фермі</h2>
+                  <p class="news-excerpt">Коротке превʼю відео — дивіться наш ролик про тварин і природу.</p>
+                </div>
+                <span class="news-arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+
+            <article class="news-item" data-category="news">
+              <a class="news-card" href="news/animals.html">
+                <img class="news-thumb" src="assets/images/card-1.png" alt="">
+                <div class="news-body">
+                  <time class="news-date">02 · 03 · 2022</time>
+                  <h2 class="news-heading">Які тварини в нас є</h2>
+                  <p class="news-excerpt">Розповідь про тварин та їхні характерні риси на фермі.</p>
+                </div>
+                <span class="news-arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+
+            <article class="news-item" data-category="media">
+              <a class="news-card" href="news/animals.html">
+                <img class="news-thumb" src="assets/images/card-1.png" alt="">
+                <div class="news-body">
+                  <time class="news-date">20 · 04 · 2022</time>
+                  <h2 class="news-heading">Репортаж у місцевих ЗМІ</h2>
+                  <p class="news-excerpt">Місцева газета про наші зусилля з відновлення популяції.</p>
+                </div>
+                <span class="news-arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+
+            <article class="news-item" data-category="video">
+              <a class="news-card" href="news/animals.html">
+                <div class="news-thumb news-thumb--video" role="img" aria-label="Превʼю відео"></div>
+                <div class="news-body">
+                  <time class="news-date">01 · 12 · 2022</time>
+                  <h2 class="news-heading">Відеоекскурсія фермою</h2>
+                  <p class="news-excerpt">Короткий гайд в відеоформаті про життя на фермі.</p>
+                </div>
+                <span class="news-arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+
+            <article class="news-item" data-category="news">
+              <a class="news-card" href="news/animals.html">
+                <img class="news-thumb" src="assets/images/card-1.png" alt="">
+                <div class="news-body">
+                  <time class="news-date">08 · 07 · 2022</time>
+                  <h2 class="news-heading">Нове на фермі: оновлення</h2>
+                  <p class="news-excerpt">Оновлення інфраструктури та нові плани роботи з громадою.</p>
+                </div>
+                <span class="news-arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+
+          </div>
+
+          <div class="news-pagination" aria-label="Пагінація"></div>
+        </div>
+      </section>
+    </main>
+
+    <div data-include="partials/footer.html"></div>
+  </body>
+</html>

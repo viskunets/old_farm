@@ -1,0 +1,137 @@
+
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="container site-footer__inner">
+
+      <a class="footer-brand" href="/index.html" aria-label="На головну">
+        <img class="footer-brand__logo" src="/assets/images/logo.png" alt="Ферма Старого Світу — логотип" />
+        <!-- <span class="footer-brand__text">ФЕРМА<br />СТАРОГО СВІТУ</span> -->
+      </a>
+
+      <div class="footer-main-grid">
+        <a class="footer-nav__link" href="/animals.html">ТВАРИНИ</a>
+        <div class="footer-contacts__item">
+          <span class="footer-contacts__icon" aria-hidden="true"></span>
+          <span>Україна, Закарпатська обл., с. Ужок</span>
+        </div>
+
+        <a class="footer-nav__link" href="reserve.html">ЗАПОВІДНИК</a>
+        <a class="footer-contacts__item" href="tel:+380635556677">
+          <span class="footer-contacts__icon footer-contacts__icon--phone" aria-hidden="true"></span>
+          <span>+38 063 555 66 77</span>
+        </a>
+
+        <a class="footer-nav__link" href="#">НОВИНИ</a>
+        <a class="footer-contacts__item" href="mailto:oldworldfarm@gmail.com">
+          <span class="footer-contacts__icon footer-contacts__icon--mail" aria-hidden="true"></span>
+          <span>oldworldfarm@gmail.com</span>
+        </a>
+
+        <a class="footer-nav__link" href="#">ПАТРОНАТСТВО</a>
+        <div class="footer-contacts__item">
+          <a class="footer-social__link" href="#" aria-label="Instagram">
+            <span class="footer-social__icon" aria-hidden="true"></span>
+          </a>
+          <span class="footer-social-text">@oldworldfarm</span>
+        </div>
+
+        <a class="footer-nav__link" href="/contacts.html">КОНТАКТИ</a>
+        <div class="footer-contacts__item">
+          <a class="footer-social__link2" href="#" aria-label="Facebook">
+            <span class="footer-social__icon footer-social__icon--fb" aria-hidden="true"></span>
+          </a>
+          <span class="footer-social-text">@oldworldfarm</span>
+        </div>
+      </div>
+
+      <div class="footer-actions">
+        <a class="btn btn--primary js-open-modal" href="#modal-contact">НАПИСАТИ НАМ</a>
+        <a class="btn btn--primary js-open-modal" href="#modal-support">ПІДТРИМАТИ</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <div class="site-footer__pattern"></div>
+  </div>
+
+  <!-- Відправка форми на email -->
+  <div id="modal-contact" class="modal">
+    <div class="modal__overlay js-close-modal"></div>
+    <div class="modal__content">
+      <button class="modal__close js-close-modal" aria-label="Закрити">&times;</button>
+  
+      <h2 class="modal__title">Написати нам</h2>
+      <div class="modal__ornament">
+        <img src="/assets/images/Vector_green.png" alt="" style="max-width: 150px; margin: 0 auto;">
+      </div>
+  
+      <form id="contact-form" class="modal__form">
+        <div class="form-group">
+          <label for="name">Ім'я *</label>
+          <input type="text" id="name" name="name" required placeholder="Ваше ім'я">
+        </div>
+  
+        <div class="form-group">
+          <label for="phone">Телефон *</label>
+          <input type="tel" id="phone" name="phone" required placeholder="+380 00 000 00 00">
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="example@mail.com">
+        </div>
+  
+        <div class="form-group">
+          <label for="message">Повідомлення</label>
+          <textarea id="message" name="message" rows="4" placeholder="Текст вашого повідомлення..."></textarea>
+        </div>
+  
+        <button type="submit" class="modal__submit">Відправити</button>
+      </form>
+  
+      <div class="modal__success-content">
+        <div class="success-icon">✓</div>
+        <h2 class="modal__title">Надіслано!</h2>
+        <p style="text-align: center; color: #1f2a2e; opacity: 0.8;">
+          Ми отримали ваше повідомлення і зв'яжемося з вами найближчим часом.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!--- Форма підтримки --->
+  <div id="modal-support" class="modal">
+    <div class="modal__overlay js-close-modal"></div>
+    <div class="modal__content modal__content--support">
+      <button class="modal__close js-close-modal">&times;</button>
+      
+      <h2 class="modal__title">Підтримати ферму</h2>
+      <div class="modal__ornament">
+          <img src="/assets/images/Vector_green.png" alt="" style="max-width: 150px; margin: 0 auto;">
+      </div>
+  
+      <div class="support-options">
+        <a href="https://send.monobank.ua/your_link" target="_blank" class="support-btn support-btn--mono">
+          Monobank | Universal Bank
+        </a>
+  
+        <a href="https://paypal.me/your_account" target="_blank" class="support-btn support-btn--paypal">
+          PayPal
+        </a>
+  
+        <div class="card-copy-box">
+          <label>Номер картки (ПриватБанк/Моно)</label>
+          <div class="copy-input-group">
+            <input type="text" value="4441 1111 2222 3333" id="cardNumber" readonly>
+            <button onclick="copyToClipboard()" class="copy-btn">Копіювати</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>

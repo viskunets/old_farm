@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main # Переконайся, що твоя гілка в GitHub називається main
+
+media_folder: "assets/images" # Куди будуть завантажуватись нові фото
+public_folder: "assets/images"
+
+collections:
+  - name: "news"
+    label: "Новини"
+    folder: "news" # Твоя папка з новинами
+    create: true # Дозволити створювати нові файли
+    slug: "{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "news-article" }
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Головне фото", name: "image", widget: "image" }
+      - { label: "Текст новини", name: "body", widget: "markdown" }

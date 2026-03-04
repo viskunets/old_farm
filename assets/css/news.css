@@ -1,0 +1,277 @@
+/* 1. Запобігаємо виходу контенту за межі body */
+html {
+    /* Дозволяємо вертикальний скрол, але ховаємо горизонтальний */
+    overflow-x: hidden;
+    /* Видаляємо фіксовану висоту, якщо вона була */
+    height: auto;
+}
+
+body {
+    /* Не обмежуємо висоту body, щоб контент міг тягнутися вниз */
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    /* Це допоможе уникнути "стрибків" на iOS */
+    -webkit-overflow-scrolling: touch; 
+}
+
+/* 2. Важливо: box-sizing змушує padding і border входити в ширину 100% */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* 3. Всі зображення мають бути гумовими за замовчуванням */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Styles for news page */
+
+/* Make footer stick to bottom on news page: body gets flex layout only for news */
+body.news-page-active{ display:flex; flex-direction:column; min-height:100vh; }
+body.news-page-active > main{ flex:1; }
+
+/* Background applied to the whole news page so every section shows the image */
+.news-page{
+  position: relative;
+  /* allow content to grow and scroll if it's taller than viewport */
+  overflow: visible;
+}
+
+/* Background layer as pseudo-element so it sits behind all sections reliably */
+.news-page::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/2bg.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
+  opacity: 1;
+  background-attachment: fixed;
+  /* Спочатку префікс для Chrome/Safari/Edge */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  /* Потім стандартна властивість */
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 95%, transparent 100%);
+}
+
+/* ensure content is above the background layer */
+.news-page > *{
+  position: relative;
+  z-index: 1;
+}
+
+.news-hero{
+  margin-top: 120px;
+  padding: 40px 0 30px;
+}
+
+.news-hero__inner{ display:flex; align-items:center; justify-content:space-between; gap:30px; }
+.news-hero__left{ display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+
+@media (max-width:960px){
+  .news-hero__inner{ flex-direction:column; align-items:flex-start; margin-top: 120px; }
+  .news-tabs{ margin-left:0; top:0; margin-top:12px; }
+}
+
+.news-page__title{
+  font-family: 'Montserrat', sans-serif;
+  font-weight:400;
+  font-size:42px;
+  letter-spacing:2px;
+  margin:0 0 0px;
+}
+
+.news-ornament{ 
+    width: 100%;
+    max-width: 433px;
+    height: 20px;
+    margin-top: 20px;
+    background-size: contain;
+    background-repeat: repeat-x;
+    background-position: left center;
+    pointer-events: none; /* allow clicks to pass through */
+ }
+
+.news-tabs{ display:flex; gap:24px; align-items:center; position:relative; padding-bottom:10px; margin-right:350px; top:50px; z-index:3; pointer-events:auto; }
+.news-tab{ background:none; border:none; font-weight:600; padding:6px 0; cursor:pointer; color:#666; position:relative; z-index:2; font-size:14px; line-height:1; }
+.news-tab.active{ color:#000; }
+
+/* Animated underline indicator */
+.news-tab-indicator{
+  position:absolute;
+  height:3px;
+  background: #e53935;
+  bottom:0;
+  left:0;
+  transform: translateX(0);
+  transition: transform .28s cubic-bezier(.2,.9,.3,1), width .28s cubic-bezier(.2,.9,.3,1);
+  z-index:1;
+  border-radius:2px;
+}
+
+.news-list{ display:grid; grid-template-columns: 1fr 1fr; gap:30px 40px; }
+.news-item{ background:transparent; /* initial hidden state handled by class */ opacity:0; transform:translateY(8px); transition: opacity .28s ease, transform .28s ease; }
+.news-item.is-shown{ opacity:1; transform:translateY(0); }
+.news-card{ display:flex; gap:24px; align-items:flex-start; text-decoration:none; color:inherit; padding:20px 12px; border-radius:6px; text-transform:uppercase; }
+
+.news-thumb{ width:210px; height:210px; object-fit:cover; border-radius:4px; flex-shrink:0; background:#eee; }
+.news-thumb--video{ width:210px; height:210px; background:url('../images/card-1.png') center/cover no-repeat; position:relative; }
+.news-thumb--video::after{ content:''; position:absolute; left:calc(50% - 24px); top:calc(50% - 24px); width:48px; height:48px; background:rgba(0,0,0,0.6); border-radius:50%; display:block; }
+
+/* Pagination for news list */
+.news-pagination{ display:flex; gap:8px; justify-content:center; align-items:center; margin-top:82px; margin-bottom:82px; }
+.news-pagination .page-btn{ background:none; border:1px solid rgba(0,0,0,0.08); padding:8px 12px; border-radius:6px; cursor:pointer; font-weight:600; }
+.news-pagination .page-btn.active{ background:#000; color:#fff; border-color:rgba(0,0,0,0.12); }
+.news-pagination .page-btn[disabled]{ opacity:.4; pointer-events:none; }
+
+.news-body{ flex:1; }
+.news-date{ display:block; font-size:12px; color:#9aa; margin-bottom:6px; }
+.news-heading{ font-size:16px; margin:0 0 8px; font-weight:700; }
+.news-excerpt{ margin:0; color:#666; font-size:14px; }
+
+/* Use image for inline news list arrow */
+.news-arrow{
+  display:inline-block;
+  width:20px;
+  height:20px;
+  background: url('/assets/images/arrow.png') center/contain no-repeat;
+  background-size: contain;
+  margin-left:8px;
+  vertical-align:middle;
+  /* keep text for accessibility but hide visually */
+  color:transparent;
+  font-size:0;
+  line-height:0;
+}
+
+@media (max-width:900px){
+  .news-list{ grid-template-columns: 1fr; }
+  .news-thumb{ width:120px; height:120px; }
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .news-card:hover{ transform:translateX(6px); transition:transform .18s ease; }
+}
+
+/* Detailed article layout for news detail page */
+.news-article{ display:grid; grid-template-columns: 435px 1fr; gap:40px; align-items:start; padding:72px 0 80px; }
+.article-aside{ padding-top:0; }
+.article-aside .article-thumb{ display:block; width:435px; height:435px; object-fit:cover; border-radius:6px; }
+.article-aside .article-nav{ display:flex; flex-direction:column; align-items:flex-start; gap:40px; margin-top:40px; }
+.nav-arrow{ font-size:22px; background:none; border:0; cursor:pointer; color:var(--text); }
+.article-links{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+.article-links__item{ font-size:13px; color:#777; }
+
+.article-content{ max-width:850px; }
+.news-date{ display:block; margin:0; }
+.article-title{ font-size:20px; margin:20px 0 0; font-weight:800; text-transform:uppercase; }
+.article-body{ margin-top:20px; text-align:justify; }
+.article-body p{ margin: 20px 0 18px; line-height:1.6; color:#333; }
+.article-hero-image{ width:480px; height:auto; display:block; margin:20px 0 0; border-radius:6px; }
+
+@media (max-width:960px){
+  .news-article{ grid-template-columns: 1fr; }
+  .article-aside{ order: -1; }
+  .article-aside .article-thumb{ width:100%; height:auto; }
+  .article-aside .article-nav{ gap:12px; flex-direction:row; justify-content:center; margin-top:12px; }
+  .article-content{ max-width:none; }
+  .article-hero-image{ width:100%; }
+}
+/* Article aside links */
+.article-nav{ display:flex; flex-direction:column; gap:12px; align-items:flex-start; }
+.article-link{ display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border-radius:8px; color:var(--text); text-decoration:none;}
+.article-link .arrow{
+  display:inline-block;
+  width:16px;
+  height:16px;
+  background: url('/assets/images/arrow.png') center/contain no-repeat;
+  background-size: contain;
+  opacity:.9;
+  font-size:0;
+  line-height:0;
+  vertical-align:middle;
+}
+/* Flip arrow for "previous" links */
+.article-link--prev .arrow{ transform: scaleX(-1); }
+.article-link--all{ font-weight:700; }
+.article-link[aria-disabled="true"]{ opacity:.45; pointer-events:none; }
+.article-link__text{ display:inline-block; }
+
+@media (max-width:960px){
+  .news-article{ grid-template-columns: 1fr; }
+  .article-intro{ flex-direction:column; }
+  .article-thumb{ width:100%; height:auto; }
+  .article-hero-image{ width:100%; }
+}
+
+
+@media (max-width: 767px) {
+  /* 1. Головна обгортка — лікуємо "плавання" вправо */
+  html, body {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      position: relative;
+  }
+
+  /* 2. Повертаємо видимість і центруємо контент */
+  .container, 
+  main, 
+  section,
+  .news-detail,
+  .ukrainer-page {
+      display: block !important; /* Повертаємо блочну модель */
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 auto !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      box-sizing: border-box !important;
+  }
+
+  /* 3. Центруємо орнамент та заголовок "НОВИНИ" */
+  .page-title, 
+  .news-ornament, 
+  img[src*="ornament"],
+  .separator {
+      display: block !important;
+      margin: 20px auto !important;
+      text-align: center !important;
+      width: auto !important;
+      max-width: 280px !important; /* Щоб не був завеликим */
+  }
+
+  /* 4. Центруємо перемикач (Усі новини / Відео) */
+  .news-categories {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 15px !important;
+      margin: 20px 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+  }
+
+  /* 5. Картинки та Відео — щоб не "видавлювали" екран */
+  .news-detail img,
+  .video-container iframe,
+  .ukrainer-content img {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      border-radius: 8px !important;
+      margin: 10px 0 !important;
+  }
+
+  /* 6. Текст — вирівнювання */
+  p, .article-text {
+      text-align: left !important; /* Текст краще читати зліва, але в центрі екрана */
+      line-height: 1.6 !important;
+      font-size: 16px !important;
+  }
+}
