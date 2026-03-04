@@ -115,12 +115,84 @@ img {
 
 /* End START section */
 
-@media (max-width:980px){
-  .patron-grid{ grid-template-columns: 1fr; }
-  .patron-image{ order:1; }
-  .patron-top{ order:2; gap:12px; align-items:flex-start; }
-  .patron-ornament{ width:92px; height:auto; margin:12px 0 18px; }
-  .patron-content{ order:3; padding:0 20px; }
-  .patron-image img{ margin-top:72px; }
-  .patron-copy{ margin-top:12px; padding:18px; }
+/* --- АДАПТИВНА ВЕРСТКА --- */
+
+/* 1. Великі екрани та планшети (Laptops / Tablets) */
+@media (max-width: 1200px) {
+    .patron-grid {
+        grid-template-columns: 1fr 1fr; /* Звужуємо колонки */
+        gap: 30px;
+    }
+    .patron-title, .patron-title2, .patron-title3, .patron-title33, .patron-start-title {
+        font-size: 32px; /* Трохи зменшуємо заголовки */
+    }
+}
+
+/* 2. Планшети в портретному режимі та великі телефони */
+@media (max-width: 980px) {
+    /* Вимикаємо паралакс для стабільності на мобільних */
+    .patronage-page {
+        background-attachment: scroll !important;
+    }
+
+    .patron-grid {
+        grid-template-columns: 1fr; /* Все в одну колонку */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Порядок блоків: Текст -> Картинка -> Текст -> Картинка */
+    .patron-image, .patron-image2 {
+        order: 2;
+        margin-top: 20px;
+    }
+    .patron-content, .patron-content2, .patron-content3, .patron-questions-wrapper {
+        order: 1;
+        padding: 0 15px;
+    }
+
+    /* Коригуємо відступи, щоб не було гігантських дірок */
+    .patron-top, .patron-image img, .patron-copy {
+        margin-top: 30px;
+    }
+    
+    .patron-hero::before {
+        display: none; /* Прибираємо декоративне "зелене полотно", воно заважає на мобільних */
+    }
+
+    .patron-ornament, .patron-ornament2, .patron-ornament3 {
+        width: 80px;
+        height: 80px;
+        flex: 0 0 80px;
+    }
+}
+
+/* 3. Маленькі смартфони (iPhone SE, Android Mini) */
+@media (max-width: 480px) {
+    .patron-title, .patron-title2, .patron-title3, .patron-title33, .patron-start-title {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+
+    .patron-copy, .patron-copy2, .patron-copy3, .patron-copy33 {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    /* Секція з анкетою */
+    .patron-start .btn {
+        width: 100%; /* Кнопка на всю ширину для зручності натискання пальцем */
+        max-width: 285px;
+    }
+
+    /* Вирівнювання іконок-векторів у списках */
+    .patron-copy3 p, .patron-copy33 p {
+        line-height: 1.5;
+        gap: 10px;
+    }
+    
+    .patron-copy33 {
+        height: auto; /* Дозволяємо блоку розтягуватися по тексту */
+        padding-bottom: 20px;
+    }
 }
