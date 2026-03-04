@@ -149,11 +149,14 @@ img {
     .patron-content, .patron-content2, .patron-content3, .patron-questions-wrapper {
         order: 1;
         padding: 0 15px;
+        padding-top: 40px;
     }
 
     /* Коригуємо відступи, щоб не було гігантських дірок */
     .patron-top, .patron-image img, .patron-copy {
         margin-top: 30px;
+        align-items: flex-end;
+        gap: 15px;
     }
     
     .patron-hero::before {
