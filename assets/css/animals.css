@@ -34,7 +34,7 @@ img {
 .animal-hero {
   padding: 120px 0 20px;
   position: relative;
-  background-image: url('/assets/images/2bg.png');
+  background-image: url('../images/2bg.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -100,7 +100,7 @@ img {
   background-size: contain;
   background-repeat: repeat-x;
   background-position: left center;
-  background-image: url("/assets/images/ornament_animals 1.png");
+  background-image: url("../images/ornament_animals 1.png");
 }
 
 /* .ornament--red {
@@ -111,7 +111,7 @@ img {
   background-repeat: no-repeat;    /* Не повторювати, якщо це один цілісний малюнок */
   background-position: center;      /* Ставимо по центру */
   background-size: contain;         /* Вміщуємо картинку повністю */
-  background-image: url("/assets/images/ornament_green.png");
+  background-image: url("../images/ornament_green.png");
   
   width: 100%;                      /* Контейнер на всю ширину */
   max-width: 879px;                 /* Але сам малюнок не ширше текстового блоку */
@@ -308,7 +308,7 @@ img {
 /* Video Section */
 .video-section {
   padding: 20px 0;
-  background-image: url('/assets/images/2bg.png');
+  background-image: url('../images/2bg.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
