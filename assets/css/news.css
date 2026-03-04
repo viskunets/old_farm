@@ -47,7 +47,7 @@ body.news-page-active > main{ flex:1; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/assets/images/2bg.png');
+  background-image: url('../images/2bg.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -140,7 +140,7 @@ body.news-page-active > main{ flex:1; }
   display:inline-block;
   width:20px;
   height:20px;
-  background: url('/assets/images/arrow.png') center/contain no-repeat;
+  background: url('../images/arrow.png') center/contain no-repeat;
   background-size: contain;
   margin-left:8px;
   vertical-align:middle;
@@ -190,7 +190,7 @@ body.news-page-active > main{ flex:1; }
   display:inline-block;
   width:16px;
   height:16px;
-  background: url('/assets/images/arrow.png') center/contain no-repeat;
+  background: url('../images/arrow.png') center/contain no-repeat;
   background-size: contain;
   opacity:.9;
   font-size:0;

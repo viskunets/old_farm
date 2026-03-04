@@ -34,7 +34,7 @@ img {
 .animal-hero {
   padding: 120px 0 20px;
   position: relative;
-  background-image: url('/assets/images/2bg.png');
+  background-image: url('../images/2bg.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -308,7 +308,7 @@ img {
 /* Video Section */
 .video-section {
   padding: 20px 0;
-  background-image: url('/assets/images/2bg.png');
+  background-image: url('../images/2bg.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
