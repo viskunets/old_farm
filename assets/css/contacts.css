@@ -33,7 +33,7 @@ img {
 
 .contacts-hero{ padding: 220px 0 20px;
   position: relative;
-  background-image: url('../images/2bg.png');
+  background-image: url('/assets/images/2bg.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -49,7 +49,7 @@ img {
 .contacts-grid{ display:grid; grid-template-columns: 520px 1fr; gap:30px; align-items:start; }
 .contacts-info{ max-width:520px; }
 .contacts-title{ font-family: 'Montserrat', sans-serif; font-size:42px; font-weight:400; margin: 10px 0 18px; letter-spacing:6px; }
-.contacts-decor{ width:434px; height:20px; background-image: url('../images/ornament_animals\ 1.png'); background-repeat:no-repeat; background-size:contain; margin-bottom:24px; margin-top: 70px;}
+.contacts-decor{ width:434px; height:20px; background-image: url('/assets/images/ornament_animals\ 1.png'); background-repeat:no-repeat; background-size:contain; margin-bottom:24px; margin-top: 70px;}
 
 .contacts-list{ margin-top:10px; display:flex; flex-direction:column; gap:18px; }
 .contact-item{ display:flex; gap:18px; align-items:center; color:#222; font-weight:600; text-decoration:none; }
@@ -59,7 +59,7 @@ img {
 
 .contacts-image img{ width:100%; height:360px; object-fit:cover; max-width:100%; display:block; padding-top: 25px;}
 
-.contacts-map{ background-image: url('../images/2bg.png');
+.contacts-map{ background-image: url('/assets/images/2bg.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

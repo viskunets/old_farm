@@ -17,7 +17,7 @@ body {
     -webkit-overflow-scrolling: touch; 
     /* 4. Встановлюємо фон на всю сторінку */
     /* Встановлюємо фон на всю сторінку */
-    background-image: url('../images/2bg.png');
+    background-image: url('/assets/images/2bg.png');
     background-position: center;
     background-size: cover; /* Фон розтягується */
     background-attachment: fixed; /* Фон залишається на місці при скролі (паралакс-ефект) */
@@ -52,7 +52,7 @@ img {
 .reserve-hero__image-wrapper {
   position: absolute;
   inset: 0;
-  background-image: url('../images/ozero_nesamovyte.png');
+  background-image: url('/assets/images/ozero_nesamovyte.png');
   background-attachment: fixed;
   background-size: cover;
   background-position: center top;

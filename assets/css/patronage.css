@@ -43,7 +43,7 @@ img {
     background-color: #CAD6CE; /* Твій світло-зелений колір */
     z-index: -1; /* Ховаємо під текст і картинку */
 }
-.patronage-page{ background-image: url('../images/2bg.png'); background-size: cover; background-position: center top; background-attachment: fixed; }
+.patronage-page{ background-image: url('/assets/images/2bg.png'); background-size: cover; background-position: center top; background-attachment: fixed; }
 /* left image | content */
 .patron-grid{ display:grid; grid-template-columns: 585px 1fr; gap:15px; align-items:start; margin-bottom:50px; }
 .patron-image img{ width:100%; height:auto; max-width:100%; display:block; margin-top:250px; }
