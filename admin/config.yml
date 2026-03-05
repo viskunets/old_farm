@@ -1,19 +1,34 @@
 backend:
-  name: git-gateway
-  branch: main # Переконайся, що твоя гілка в GitHub називається main
+  name: github
+  repo: ТвійНік/old_farm # ЗАМІНИ НА СВІЙ РЕПОЗИТОРІЙ
+  branch: main
 
-media_folder: "assets/images" # Куди будуть завантажуватись нові фото
+media_folder: "assets/images"
 public_folder: "assets/images"
 
 collections:
   - name: "news"
     label: "Новини"
-    folder: "news" # Твоя папка з новинами
-    create: true # Дозволити створювати нові файли
-    slug: "{{slug}}"
+    folder: "news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    # Це поле змусить CMS оновлювати список новин автоматично
+    meta: { path: { label: "JSON Data", name: "json_data", widget: "hidden", default: "assets/data/news.json" } }
     fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "news-article" }
+      - { label: "ID (латиницею)", name: "id", widget: "string" }
       - { label: "Заголовок", name: "title", widget: "string" }
-      - { label: "Дата", name: "date", widget: "datetime" }
+      - { 
+          label: "Категорія", 
+          name: "category", 
+          widget: "select", 
+          options: [
+            { label: "ЗМІ про нас", value: "media" },
+            { label: "Відео", value: "video" },
+            { label: "Проста новина", value: "news" }
+          ],
+          default: "news"
+        }
+      - { label: "Дата", name: "date", widget: "datetime", format: "DD.MM.YYYY" }
       - { label: "Головне фото", name: "image", widget: "image" }
+      - { label: "Короткий опис", name: "description", widget: "text" }
       - { label: "Текст новини", name: "body", widget: "markdown" }
